@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="8-sinf informatika darsi: bir mavzu, uch interfaol metod, har biriga 5 daqiqa va yakuniy o‘rtacha ball.">
+<title>Informatika · Dars laboratoriyasi</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231b6652'/%3E%3Ctext x='6' y='29' fill='white' font-size='26'%3Ei8%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script src="lesson-data.js" defer></script><script src="crossword.js" defer></script><script src="lesson-builder.js" defer></script><script src="session-core.js" defer></script><script src="publishing.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header><div class="brand"><span class="brand-icon">i8</span><div>Informatika<span class="brand-sub">DARS LABORATORIYASI</span></div></div><span id="role-label" class="header-label">Dars laboratoriyasi</span></header>
+<main>
+<p id="global-error" class="notice error" role="alert" hidden></p>
+<section id="home" class="screen">
+<div class="heading"><p class="eyebrow">INFORMATIKA · 8-SINF</p><h1>Dars laboratoriyasiga xush kelibsiz!</h1><p>Davom etish uchun bo‘limingizni tanlang.</p></div>
+<div class="actions"><button id="choose-teacher" class="primary">O‘qituvchi</button><button id="choose-student" class="secondary">O‘quvchi</button></div>
+</section>
+<section id="teacher-login" class="screen" hidden><div class="join-card"><p class="eyebrow">O‘QITUVCHI BO‘LIMI</p><h1>Parolni kiriting</h1><form id="teacher-login-form" autocomplete="off"><label for="teacher-password">O‘qituvchi paroli<input id="teacher-password" type="password" required autocomplete="off" maxlength="64" aria-describedby="teacher-login-message"></label><div class="actions"><button class="primary" type="submit">Kirish</button><button id="cancel-teacher-login" class="secondary" type="button">Orqaga</button></div></form><p id="teacher-login-message" class="notice" role="alert"></p></div></section>
+<section id="teacher" class="screen" hidden>
+<div class="heading"><p class="eyebrow">BIR MAVZU. UCH XIL MASHQ.</p><h1>Bugun nimani o‘rganamiz?</h1><p>Mavzuni tanlang. Uchala metod uchun ham topshiriqlar tayyor bo‘ladi.</p></div>
+<form id="prepare-form" class="topic-box"><label for="topic-input">Dars mavzusi<input id="topic-input" list="topic-list" maxlength="120" required autocomplete="off" value="Kompyuter tarmoqlari va asosiy tushunchalar"></label><datalist id="topic-list"></datalist><button class="primary" type="submit">Darsni tayyorlash <span>↗</span></button></form>
+<div id="topic-buttons" class="chips" aria-label="Tayyor mavzular"></div><p id="teacher-message" class="notice" role="status">Tayyor savollar to‘plami · AI kaliti va ro‘yxatdan o‘tish talab qilinmaydi.</p>
+<div class="method-overview"><article><span class="method-number">01</span><h2>Krossvord</h2><p>Atamalarni toping va kataklarni to‘ldiring.</p><div>5 ta savol <span>·</span> 5 daqiqa</div></article><article><span class="method-number">02</span><h2>Xatoni top</h2><p>Xato fikrni to‘g‘ri javob bilan almashtiring.</p><div>5 ta savol <span>·</span> 5 daqiqa</div></article><article><span class="method-number">03</span><h2>Algoritmni yig‘</h2><p>Qadamlarni mantiqiy ketma-ketlikka keltiring.</p><div>1 ta algoritm <span>·</span> 5 daqiqa</div></article></div>
+<section id="lesson-ready" class="share-card" hidden><div class="card-heading"><div><p class="eyebrow">DARS TAYYOR</p><h2 id="prepared-title"></h2></div><span class="badge">3 metod · 30 ball</span></div>
+<p>Darsni e’lon qiling. Sayt yangilangach, o‘quvchilar oddiy sayt manzilidan kirishadi.</p>
+<form id="publish-form" autocomplete="off">
+<label for="github-owner">GitHub foydalanuvchi yoki tashkilot nomi<input id="github-owner" required autocomplete="off" placeholder="masalan: ustoz"></label>
+<label for="github-repo">Repository nomi<input id="github-repo" required autocomplete="off" placeholder="masalan: informatika"></label>
+<label for="github-branch">Pages uchun tanlangan branch<input id="github-branch" required value="main" autocomplete="off"></label>
+<label for="github-folder">Pages papkasi<select id="github-folder"><option value="">/ (root)</option><option value="docs">/docs</option></select></label>
+<label for="github-token">GitHub tokeni<input id="github-token" type="password" required autocomplete="off" spellcheck="false"></label>
+<p class="small">Faqat shu repository uchun Contents: Read and write huquqli fine-grained token kiriting. Token saqlanmaydi. E’lon qilish joriy darsni almashtiradi.</p>
+<button id="publish-button" class="primary" type="submit">Darsni GitHub’ga e’lon qilish</button></form>
+<div class="actions"><button id="check-published" class="secondary">Saytda yangilanganini tekshirish</button><button id="enter-pupil" class="secondary">Shu qurilmada sinab ko‘rish</button></div>
+<p id="share-message" class="notice" role="status"></p></section>
+<p class="privacy-note">Ism, javoblar va ball faqat ochiq sahifada turadi. Sahifa yangilansa yoki yopilsa, natija o‘chadi.</p>
+</section>
+<section id="join" class="screen" hidden><div class="join-card"><p class="eyebrow">DARSINGIZGA XUSH KELIBSIZ</p><h1 id="join-topic"></h1><div class="rule-pills"><span>3 ta metod</span><span>Har biriga 5 daqiqa</span><span>Jami 30 ball</span></div><form id="join-form" autocomplete="off"><label for="pupil-name">Ism va familiya<input id="pupil-name" autocomplete="off" minlength="2" maxlength="70" required placeholder="Ism Familiya"></label><label for="pupil-class">Sinf<input id="pupil-class" autocomplete="off" maxlength="30" required placeholder="Masalan: 8-A"></label><button id="join-submit" type="submit" class="primary">Topshiriqlarga o‘tish →</button></form><p id="join-message" role="status" class="notice"></p><p class="privacy-note">Har metodning vaqti “Boshlash” bosilganda boshlanadi. Urinish vaqtida sahifani yangilamang yoki yopmang.</p></div></section>
+<section id="pupil" class="screen" hidden>
+<div class="pupil-heading"><div><p id="pupil-person" class="eyebrow"></p><h1 id="pupil-topic"></h1></div><div id="timer-box" hidden><span>Qolgan vaqt</span><strong id="timer" role="timer" aria-label="Qolgan vaqt">05:00</strong></div></div>
+<ol id="method-progress" class="method-progress" aria-label="Metodlar ketma-ketligi"></ol>
+<section id="stage-ready" class="ready-card"><p id="transition-note" class="notice"></p><p id="ready-number" class="eyebrow"></p><h2 id="ready-title"></h2><p id="ready-instruction"></p><div class="rule-pills"><span id="ready-count">5 ta savol</span><span>5 daqiqa</span><span>Maksimal 10 ball</span></div><button id="begin-stage" class="primary">Boshlash — 5 daqiqa</button><p class="privacy-note">Vaqt tugasa, shu metod avtomatik yakunlanadi.</p></section>
+<section id="stage-active" hidden><div class="stage-heading"><h2 id="active-title"></h2><span id="answer-count" class="badge"></span></div>
+<div id="crossword-area" class="workspace" hidden><section class="question-card"><h3>Savollar</h3><p class="small">Savolni bosib, tegishli so‘zni belgilang.</p><ol id="crossword-clues"></ol></section><section class="grid-card"><h3>Kataklarni to‘ldiring</h3><p class="small">Katakka bosing va harfni tanlang. Sh va Ch ikki katakka yoziladi. Telefonda kataklarni yon tomonga surish mumkin.</p><div class="grid-scroll"><div id="crossword-grid"></div></div></section></div>
+<div id="error-area" class="error-list" hidden></div>
+<div id="algorithm-area" hidden><div class="algorithm-nav"><p>Topshiriqni tanlang:</p><div id="algorithm-buttons"></div></div><div id="algorithm-task" class="algorithm-card"></div></div>
+<div class="finish-bar"><p>Javoblar metod yakunlanganda baholanadi.</p><button id="finish-stage" class="primary">Metodni yakunlash →</button></div></section>
+</section>
+<section id="result" class="screen" hidden><div class="result-card"><p class="eyebrow">UCHALA METOD YAKUNLANDI</p><h1 id="result-name"></h1><p id="result-class" class="result-class"></p><p class="score-label">Umumiy o‘rtacha ball</p><div class="result-score"><strong id="result-average"></strong><span>/ 10</span></div><p id="result-total" class="total-score"></p><div id="result-breakdown" class="result-breakdown"></div><p class="small">O‘rtacha ball = uchala metod ballari yig‘indisi ÷ 3.</p><p class="privacy-note">Natijangizni o‘qituvchingizga ko‘rsating. Sahifa yopilsa yoki yangilansa, bu ma’lumotlar o‘chadi.</p></div></section>
+<footer><span>INFORMATIKA · 8-SINF</span><span>O‘ylang. Bajaring. O‘rganing.</span></footer>
+</main>
+<dialog id="letter-dialog"><div class="card-heading"><h2>Harfni tanlang</h2><button id="close-letter" class="icon-button" aria-label="Oynani yopish">×</button></div><p id="letter-clue" class="small"></p><div id="letter-choices"></div><button id="erase-letter" class="secondary">Harfni o‘chirish</button></dialog>
+<dialog id="finish-dialog"><h2>Metodni yakunlaysizmi?</h2><p>Bu metodga qaytib, javoblarni o‘zgartirib bo‘lmaydi.</p><div class="actions"><button id="confirm-finish" class="primary">Ha, yakunlash</button><button id="cancel-finish" class="secondary">Davom etish</button></div></dialog>
+<dialog id="celebration-dialog" class="celebration"><div id="confetti" aria-hidden="true"></div><div class="celebration-content"><span id="celebration-symbol" class="celebration-symbol" aria-hidden="true">★</span><h2 id="celebration-title"></h2><p id="celebration-name"></p><p id="celebration-class"></p><p class="score-label">Umumiy o‘rtacha ball</p><div class="celebration-score"><strong id="celebration-average"></strong><span>/ 10</span></div><p id="celebration-total"></p><button id="close-celebration" class="primary">Natijalar tafsilotini ko‘rish</button></div></dialog>
+</body></html>
